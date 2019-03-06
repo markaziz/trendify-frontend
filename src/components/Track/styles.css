@@ -1,0 +1,106 @@
+
+.albumImage {
+  width: 5rem;
+  height: 5rem;
+}
+
+.track {
+  width: 19.5rem;
+  display: flex;
+  max-height: 5rem;
+  min-height: 5rem;
+  flex: 1;
+  flex-direction: row;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #5e5e5e;
+  position: relative;
+  color: #ffffff;
+}
+
+.track::before, .emptyTrack::before {
+
+}
+
+.emptyTrack {
+  border: #ffffff 2px solid;
+  width: 19.5rem;
+  min-height: 5rem;
+  max-height: 5rem;
+  display: flex;
+  flex: 1;
+  color: #ffffff;
+  position: relative;
+}
+
+.emptyTrack::after {
+  content: '?';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 1.2rem;
+  font-family: 'Joti One';
+  font-weight: 600;
+}
+
+
+.name {
+  font-size: 1rem;
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-weight: 600;
+}
+
+.artists {
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-style: italic;
+  white-space: pre-wrap;
+  padding-top: 0.2rem;
+  width: 90%;
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action {
+  justify-content: flex-end;
+  padding: 0 0.4rem;
+  display: flex;
+  flex: 1;
+  background: #464646;
+  font-size: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.action:hover {
+  background: #6d6d6d
+}
+
+.trackText {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  justify-content: center;
+  text-align: left;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.top::before {
+
+}
+
+.bottom {
+  /* color: aqua !important; */
+  /* margin-bottom: 2rem; */
+}

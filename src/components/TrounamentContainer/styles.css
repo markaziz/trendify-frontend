@@ -1,0 +1,35 @@
+.tournament {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-content: space-around;
+  color: #ffffff;
+  
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.round .battle:first-child .spacer:first-child,
+.round .battle:first-child .spacer:last-child{ flex-grow: 0.5; }
+
+.round:first-child .battle {
+   /* margin-bottom: 5rem; */
+}
+
+.round:last-child .track:before, .round:last-child .emptyTrack:before {
+  width: 0;
+}
+
+.round:last-child .vs::before{
+  width: 0;
+}
+
+.round:first-child .spacer{
+  /* min-height: 50px; */
+  /* flex-grow: 0.8; */
+}

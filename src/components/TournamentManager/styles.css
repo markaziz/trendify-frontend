@@ -1,0 +1,37 @@
+.battle {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  /* border: 1px solid white; */
+}
+
+
+.vs {
+  margin: 0 auto;
+  padding: 0.2rem 0;
+  font-size: 1.2rem;
+  font-family: 'Joti One', cursive;
+  font-weight: 600;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.vs::before {
+  content: '';
+  background: #ffffff;
+  height: 1px;
+  width: 93%;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%); 
+  position: absolute;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+/* .round .spacer:first-child,
+.round .spacer:last-child{ flex-grow:.5; } */

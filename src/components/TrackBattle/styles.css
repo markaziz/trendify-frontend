@@ -1,0 +1,37 @@
+
+.outerContainer {
+  color: #ffffff;
+  margin-bottom: 8rem;
+  cursor: pointer;
+  position: relative;
+}
+.trackContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.vs {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  font-weight: 800;
+  font-style: italic;
+  font-family: 'Comic Sans MS', cursive, sans-serif
+}
+
+.iframes {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.emptyTrack {
+  display: flex;
+  width: 20rem;
+  height: 80px;
+  flex: 0 1;
+  margin: 0.2rem 1rem;
+}

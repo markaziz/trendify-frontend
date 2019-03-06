@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import TrounamentContainer from './components/TrounamentContainer/TrounamentContainer';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: false,
+    }
+    
+    const search = window.location.search
+    const accessToken = search ? new URLSearchParams(search).get('access_token') : null;
+    if (accessToken) {
+      localStorage.setItem('accessToken', accessToken);
+      this.state = Object.assign({}, this.state, { isLoggedIn: true })
+    } else {
+      this.state = Object.assign({}, this.state, { isLoggedIn: false })
+    }
+
+    this.redirectToLogin = this.redirectToLogin.bind(this);
+  }
+
+  redirectToLogin() {
+    this.setState({ loading: true });
+    window.location = 'http://localhost:4000/login';
+  }
+
   render() {
+    const { loading, isLoggedIn } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        {!isLoggedIn && !loading ?
+          <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify</div> :
+          <TrounamentContainer />
+        }
+        {loading &&
+          <div class="boxLoading" />
+        }
       </div>
     );
   }
+  
 }
 
-export default App;
+
+
+
