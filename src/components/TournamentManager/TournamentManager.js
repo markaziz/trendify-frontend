@@ -114,9 +114,7 @@ export default function TournamentManager(props) {
                   isWinner={p[0] && p[0].isWinner}
                   setWinner={() => { onWinnerSelected(p[0], allNodes, setNodes); }}
                 />
-                {/* <div className="game-spacer"> */}
-                  <span className="vs">vs</span>
-                {/* </div> */}
+                <span className="vs">vs</span>
                 <Track
                   isTop={false}
                   round={index}

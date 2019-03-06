@@ -16,6 +16,7 @@
   background: #5e5e5e;
   position: relative;
   color: #ffffff;
+  justify-content: flex-end;
 }
 
 .track::before, .emptyTrack::before {
@@ -23,6 +24,7 @@
 }
 
 .emptyTrack {
+  justify-content: flex-end;
   border: #ffffff 2px solid;
   width: 19.5rem;
   min-height: 5rem;

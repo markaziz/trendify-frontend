@@ -1,6 +1,6 @@
 .iframe {
   display: block;
-  width: 16rem;
+  width: 18rem;
   height: 5rem;
   border-radius: 2rem;
   z-index: 2;
@@ -9,7 +9,7 @@
 .iframeContainer {
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 0;
   display: flex;
   flex: 1;
   justify-content: center;
