@@ -1,41 +1,23 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import './styles.css';
-import classNames from 'classnames';
-import TrackIframe from '../TrackIframe/TrackIframe';
+import ReactAudioPlayer from 'react-audio-player';
+
 
 export default function Track(props) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const { track, isTop, isWinner, setWinner } = props;
+  const { name, artists, image, preview_url } = props;
   return (
-    <div
-      onMouseEnter={() => setIsOpen(!isOpen)}
-      onMouseLeave={() => setIsOpen(!isOpen)}
-      className={classNames({
-      'track': track,
-      'emptyTrack': !track,
-      'top': isTop,
-      'bottom': !isTop,
-      })}>
-      {track && !isOpen &&
-        <React.Fragment>
-          <img className="albumImage" src={track.albumImage.url} />
-          <div className="trackText">
-            <div className="name">{track.name}</div>
-            <div className="artists">By {track.artists}</div>
-          </div>          
-        </React.Fragment>}
-        <div className="actionButtons">
-          <div className="action" onClick={() => setIsOpen(!isOpen)} >▶</div>
-          <div
-            style={isWinner ? { background: 'green' } : {} }
-            className="action"
-            onClick={setWinner}
-            >
-            ✓
-          </div>
+    <div className="trackContainer">
+      <div className="track">
+        <img src={image} alt={image} />
+        <div className="trackInfo">
+          <span className="name">{name}</span>
+          <span className="artists">{artists.map(a => a.name).join(', ')}</span>
         </div>
-      {track && <TrackIframe isVisibile={isOpen} track={track} />}
+      </div>
+      <ReactAudioPlayer
+        src={preview_url}
+        controls
+      />
     </div>
   )
 };

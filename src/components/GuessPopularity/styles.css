@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 50vh;
+}
+
+.submitButton, .nextButton {
+  width: 14rem;
+  text-align: center;
+  margin: 0 auto !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  background: #c15656 !important;
+}
+
+.nextButton {
+  background: #5dd367 !important;
+}
+
+.instructions {
+  text-align: center;
+  width: 100%;
+  font-size: 1.4rem;
+  margin: 0 auto;
+  font-style: italic;
+}

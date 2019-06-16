@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TrounamentContainer from './components/TrounamentContainer/TrounamentContainer';
 import './App.css';
+import GuessPopularity from './components/GuessPopularity/GuessPopularity';
 
 export default class App extends Component {
   constructor() {
@@ -32,7 +32,8 @@ export default class App extends Component {
       <div className="app">
         {!isLoggedIn && !loading ?
           <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify</div> :
-          <TrounamentContainer />
+          // <TrounamentContainer />
+          <GuessPopularity />
         }
         {loading &&
           <div class="boxLoading" />
