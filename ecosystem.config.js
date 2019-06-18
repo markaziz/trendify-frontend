@@ -2,7 +2,7 @@ module.exports = {
   apps: [{
     name: 'spotify-frontend',
     script: "npm",
-    args : "start",
+    args : "start:prod",
     env: {
       NODE_ENV: "development",
     },
