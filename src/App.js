@@ -7,13 +7,15 @@ export default class App extends Component {
     super();
     this.state = {
       loading: false,
+      accessToken: '',
     }
     
     const search = window.location.search
     const accessToken = search ? new URLSearchParams(search).get('access_token') : null;
     if (accessToken) {
       localStorage.setItem('accessToken', accessToken);
-      this.state = Object.assign({}, this.state, { isLoggedIn: true })
+      const token = window.localStorage.getItem('accessToken');
+      this.state = Object.assign({}, this.state, { isLoggedIn: true, accessToken: token })
     } else {
       this.state = Object.assign({}, this.state, { isLoggedIn: false })
     }
@@ -23,17 +25,16 @@ export default class App extends Component {
 
   redirectToLogin() {
     this.setState({ loading: true });
-    window.location = 'http://localhost:4000/login';
+    window.location = 'http://localhost:4040/login';
   }
 
   render() {
-    const { loading, isLoggedIn } = this.state;
+    const { loading, isLoggedIn, accessToken } = this.state;
     return (
       <div className="app">
-        {!isLoggedIn && !loading ?
+        {!isLoggedIn ?
           <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify</div> :
-          // <TrounamentContainer />
-          <GuessPopularity />
+          <GuessPopularity accessToken={accessToken} />
         }
         {loading &&
           <div class="boxLoading" />

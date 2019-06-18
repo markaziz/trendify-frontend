@@ -6,8 +6,14 @@ export default function MUISlider(props) {
 
   return (
     <React.Fragment>
-      <h1>{value}</h1>
-      <Slider defaultValue={defaultValue} value={value || defaultValue} onChange={onChange} />
+      <h1 id="slider">{value}</h1>
+      <Slider
+        aria-labelledby="slider"
+        defaultValue={defaultValue}
+        value={value || defaultValue}
+        onChange={onChange}
+        getAriaValueText={value}
+      />
     </React.Fragment>
   );
 }
