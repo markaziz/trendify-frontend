@@ -26,7 +26,7 @@ export default class App extends Component {
 
   redirectToLogin() {
     this.setState({ loading: true });
-    window.location = `http://${process.env.BACKEND_HOSTNAME}:${process.env.BACKEND_PORT}/login`;
+    window.location = `http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/login`;
   }
 
   render() {
