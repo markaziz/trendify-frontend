@@ -1,7 +1,8 @@
 module.exports = {
   apps: [{
     name: 'spotify-frontend',
-    script: 'PORT=5000 react-scripts start',
+    script: "npm",
+    args : "start",
     env: {
       NODE_ENV: "development",
     },
