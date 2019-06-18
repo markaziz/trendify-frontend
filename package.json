@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "PORT=5000 react-scripts start",
-    "start:prod": "NODE_ENV=production serve -s build",
+    "start:prod": "npm run build && NODE_ENV=production serve -s build",
     "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
     "build": "react-scripts build",
