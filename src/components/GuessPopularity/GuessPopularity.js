@@ -24,13 +24,13 @@ export default function GuessPopularity(props) {
 
   useEffect(() => {
     async function getTopTracks() {
-      const res = await fetch(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/toptracks?access_token=${props.accessToken}&limit=50`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/toptracks?access_token=${props.accessToken}&limit=50`, {
         mode: "cors",
       }).catch((err) => {
         console.log(err);
       });
       if(res && res.status === 401) {
-        window.location = `http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/login`;
+        window.location = `${process.env.REACT_APP_BACKEND_URL}/login`;
       }
     
       const tracksData = await res.json();
