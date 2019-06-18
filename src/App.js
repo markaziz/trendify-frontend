@@ -30,10 +30,11 @@ export default class App extends Component {
 
   render() {
     const { loading, isLoggedIn, accessToken } = this.state;
+    console.log(process.env.NODE_ENV);
     return (
       <div className="app">
         {!isLoggedIn ?
-          <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify</div> :
+          <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify ({process.env.NODE_ENV})</div> :
           <GuessPopularity accessToken={accessToken} />
         }
         {loading &&
