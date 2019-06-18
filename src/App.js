@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GuessPopularity from './components/GuessPopularity/GuessPopularity';
+require('dotenv').config()
 
 export default class App extends Component {
   constructor() {
@@ -25,7 +26,7 @@ export default class App extends Component {
 
   redirectToLogin() {
     this.setState({ loading: true });
-    window.location = 'http://localhost:4040/login';
+    window.location = `http://${process}:4040/login`;
   }
 
   render() {
