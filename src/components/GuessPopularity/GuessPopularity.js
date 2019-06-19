@@ -30,7 +30,7 @@ export default function GuessPopularity(props) {
         console.log(err);
       });
       if(res && res.status === 401) {
-        window.location = `${process.env.REACT_APP_BACKEND_URL}/login`;
+        window.location.href = `${process.env.REACT_APP_BACKEND_URL}/login`;
       }
     
       const tracksData = await res.json();
