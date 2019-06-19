@@ -1,12 +1,10 @@
 module.exports = {
   apps: [{
     name: 'spotify-frontend',
-    script: "npm",
-    args : "run start:prod",
+    script: "npx",
+    args: 'serve build -s',
     watch: false,
-    env: {
-      NODE_ENV: "development",
-    },
+    interpreter: 'none',
     env_production: {
       NODE_ENV: "production",
     }
@@ -19,8 +17,8 @@ module.exports = {
       key: '~/.ssh/spotify-app-node.pem',
       ref: 'origin/master',
       repo: 'git@github.com:m-aziz/spotify-frontend.git',
+      "pre-deploy": "cd /home/ubuntu/spotify-frontend && git pull",
       path: '/home/ubuntu/spotify-frontend',
-      "pre-deploy": "git pull",
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
