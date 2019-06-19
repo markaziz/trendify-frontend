@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { getRandomNumber, getRandomItemsFromArray } from '../../utils';
 
 const DEFAULT_SLIDER_VALUE = 10;
+const POINTS_MULTIPLIER = 100;
 const NUM_OF_SONGS_TO_GUESS = 10;
 
 function getRandomTrack(tracks) {
@@ -17,6 +18,7 @@ function getRandomTrack(tracks) {
 
 export default function GuessPopularity(props) {
   const [selectedTrack, setSelectedTrack] = useState(null);
+  const [guessesRemaining, setGuessesRemaining] = useState(NUM_OF_SONGS_TO_GUESS);
   const [allTracks, setAllTracks] = useState([]);
   const [sliderValue, setSliderValue] = useState(DEFAULT_SLIDER_VALUE);
   const [playerPoints, setPlayerPoints] = useState(0);
@@ -67,7 +69,7 @@ export default function GuessPopularity(props) {
 
   const handleSubmit = () => {
     const popularity = parseInt(selectedTrack.popularity, 10);
-    setPlayerPoints(playerPoints + (100 - Math.abs(sliderValue - popularity)));
+    setPlayerPoints(playerPoints + (POINTS_MULTIPLIER - Math.abs(sliderValue - popularity)));
     setHasPlayerGuessed(true);
 
     // Remove song from our list
@@ -75,6 +77,7 @@ export default function GuessPopularity(props) {
     const index = newTracksList.findIndex((t) => t.id === selectedTrack.id);
     newTracksList.splice(index, 1);
     setAllTracks(newTracksList);
+    setGuessesRemaining(guessesRemaining - 1);
   }
 
   const handleNext = () => {
@@ -82,6 +85,8 @@ export default function GuessPopularity(props) {
     setHasPlayerGuessed(false);
     setSliderValue(DEFAULT_SLIDER_VALUE);
   }
+
+  const nextButtonText = guessesRemaining > 0 ? 'Next song' : 'See my score';
 
   return (
     <div className="container">
@@ -94,7 +99,7 @@ export default function GuessPopularity(props) {
         </div>
         <MUISlider value={sliderValue} onChange={(v) => setSliderValue(v)} defaultValue={DEFAULT_SLIDER_VALUE} />
         {hasPlayerGuessed ? 
-          <Button onClick={handleNext} classes={{ root: 'nextButton' }} variant="contained">Next song</Button> :
+          <Button onClick={handleNext} classes={{ root: 'nextButton' }} variant="contained">{nextButtonText}</Button> :
           <Button onClick={handleSubmit} classes={{ root: 'submitButton' }} variant="contained">Submit guess</Button>
         }
         {hasPlayerGuessed &&
@@ -102,7 +107,10 @@ export default function GuessPopularity(props) {
         }
         <h2>Points: {playerPoints}</h2>
       </React.Fragment> :
-      <h1>Game over! Points: {playerPoints}</h1>}
+      <React.Fragment>
+        <h1>Game over! Points: {playerPoints}/{NUM_OF_SONGS_TO_GUESS * POINTS_MULTIPLIER}</h1>
+        <Button onClick={() => { window.location.reload(); }} classes={{ root: 'nextButton' }} variant="contained">Play again!</Button>
+      </React.Fragment>}
     </div>
   );
 }
