@@ -35,7 +35,7 @@ export default class App extends Component {
     return (
       <div className="app">
         {!isLoggedIn ?
-          <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify ({process.env.NODE_ENV})</div> :
+          <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify</div> :
           <GuessPopularity accessToken={accessToken} />
         }
         {loading &&
