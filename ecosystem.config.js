@@ -1,8 +1,8 @@
 module.exports = {
   apps: [{
     name: 'spotify-frontend',
-    script: "npx",
-    args: 'serve build -s',
+    script: "npm",
+    args: 'run build && NODE_ENV=production serve -s build',
     watch: false,
     interpreter: 'none',
     env_production: {
