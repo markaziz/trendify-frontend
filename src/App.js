@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GuessPopularity from './components/GuessPopularity/GuessPopularity';
+import GenreSelection from './components/GenreSelection/GenreSelection';
 require('dotenv').config()
 
 export default class App extends Component {
@@ -35,7 +36,8 @@ export default class App extends Component {
       <div className="app">
         {!isLoggedIn ?
           <div className="loginButton" onClick={this.redirectToLogin}>Log in to Spotify</div> :
-          <GuessPopularity accessToken={accessToken} />
+          <GenreSelection accessToken={accessToken} />
+          // <GuessPopularity accessToken={accessToken} />
         }
         {loading &&
           <div class="boxLoading" />

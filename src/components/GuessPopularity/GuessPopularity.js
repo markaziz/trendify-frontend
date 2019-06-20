@@ -8,6 +8,7 @@ import { getRandomNumber, getRandomItemsFromArray } from '../../utils';
 const DEFAULT_SLIDER_VALUE = 10;
 const POINTS_MULTIPLIER = 100;
 const NUM_OF_SONGS_TO_GUESS = 10;
+const API = process.env.REACT_APP_BACKEND_URL;
 
 function getRandomTrack(tracks) {
   const randNum = getRandomNumber(0, tracks.length - 1);
@@ -26,14 +27,17 @@ export default function GuessPopularity(props) {
 
   useEffect(() => {
     async function getTopTracks() {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/toptracks?access_token=${props.accessToken}&limit=50`, {
+      console.log('ran useEffect');
+      // const res = await fetch(`${API}/toptracks?access_token=${props.accessToken}&limit=50`, {
+      const res = await fetch(`${API}/getRecommendations?access_token=${props.accessToken}&genre=${props.genre}`, {
         mode: "cors",
       }).catch((err) => {
         console.log(err);
       });
       if(res && res.status === 401) {
-        window.location.href = `${process.env.REACT_APP_BACKEND_URL}/login`;
+        window.location.href = `${API}/login`;
       }
+      // fetch(`${API}/getRecommendations?access_token=${props.accessToken}`);
     
       const tracksData = await res.json();
       const filteredTracks = tracksData.filter((t) => t.preview_url);
