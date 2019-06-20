@@ -31,7 +31,6 @@ export default class App extends Component {
 
   render() {
     const { loading, isLoggedIn, accessToken } = this.state;
-    console.log(process.env.NODE_ENV);
     return (
       <div className="app">
         {!isLoggedIn ?
