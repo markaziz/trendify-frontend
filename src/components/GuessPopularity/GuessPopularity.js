@@ -29,7 +29,7 @@ export default function GuessPopularity(props) {
     async function getTopTracks() {
       console.log('ran useEffect');
       // const res = await fetch(`${API}/toptracks?access_token=${props.accessToken}&limit=50`, {
-      const res = await fetch(`${API}/getRecommendations?access_token=${props.accessToken}&genre=${props.genre}`, {
+      const res = await fetch(`${API}/getRecommendations?access_token=${props.accessToken}&genres=${props.genres.join(',')}`, {
         mode: "cors",
       }).catch((err) => {
         console.log(err);
@@ -90,14 +90,15 @@ export default function GuessPopularity(props) {
     setSliderValue(DEFAULT_SLIDER_VALUE);
   }
 
-  const nextButtonText = guessesRemaining > 0 ? 'Next song' : 'See my score';
+  const nextButtonText = guessesRemaining > 0 ? 'Next song' : 'End game';
 
   return (
     <div className="container">
       {trackComponent ?
       <React.Fragment>
-        {trackComponent}
         <h1>Guess the popularity!</h1>
+        {trackComponent}
+        {/* <h1>{NUM_OF_SONGS_TO_GUESS - guessesRemaining}/{NUM_OF_SONGS_TO_GUESS}</h1> */}
         <div className="instructions">
           <p>Spotify gives each song a popularity score from 0 - 100 based on an algorithm that uses the number of times a song is played and how recently it was played.</p>
         </div>

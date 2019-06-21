@@ -1,0 +1,49 @@
+.genreBlockContainer {
+  height: 28rem;
+  width: 22rem;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(76, 76, 76, 0.8);
+  background-blend-mode: multiply;
+  flex: 1 0 25%;
+  cursor: pointer;
+}
+
+.genreBlockContainer:hover {
+  background-color: rgba(76, 76, 76, 0.2);
+}
+
+@media screen and (max-width: 504px)  {
+  .genreBlockContainer {
+    flex: 1 0 25%;
+    height: 16rem;
+  }  
+}
+
+.genreName {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px #000000;
+}
+
+.selectionIndicator {
+  height: 2rem;
+  width: 2rem;
+  color: black;
+  background: limegreen;
+  position: absolute;
+  top: 1rem;
+  font-size: 1.8rem;
+  right: 1rem;
+  border-radius: 20rem;
+  font-weight: bold;
+}

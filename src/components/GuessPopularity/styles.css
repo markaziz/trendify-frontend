@@ -4,6 +4,7 @@
   justify-content: center;
   position: relative;
   width: 50vh;
+  margin: 8rem 0;
 }
 
 .submitButton, .nextButton {

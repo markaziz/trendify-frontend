@@ -1,0 +1,12 @@
+.genreSelectionContainer {
+  display: flex;
+  margin: 0 25%;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 4rem;
+}
+@media screen and (max-width: 504px)  {
+  .genreSelectionContainer {
+    margin: 0 5rem;
+  }  
+}
