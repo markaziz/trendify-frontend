@@ -1,6 +1,6 @@
 .genreBlockContainer {
   height: 28rem;
-  width: 22rem;
+  width: 18rem;
   border: 1px solid white;
   border-radius: 0.2rem;
   margin: 1rem;
@@ -10,19 +10,11 @@
   background-position: center;
   background-color: rgba(76, 76, 76, 0.8);
   background-blend-mode: multiply;
-  flex: 1 0 25%;
   cursor: pointer;
 }
 
 .genreBlockContainer:hover {
   background-color: rgba(76, 76, 76, 0.2);
-}
-
-@media screen and (max-width: 504px)  {
-  .genreBlockContainer {
-    flex: 1 0 25%;
-    height: 16rem;
-  }  
 }
 
 .genreName {
@@ -42,8 +34,18 @@
   background: limegreen;
   position: absolute;
   top: 1rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   right: 1rem;
   border-radius: 20rem;
   font-weight: bold;
+}
+
+@media screen and (max-width: 504px)  {
+  .genreBlockContainer {
+    flex: 1 0 25%;
+    height: 16rem;
+  }  
+  .genreName {
+    font-size: 1.6rem;
+  }
 }

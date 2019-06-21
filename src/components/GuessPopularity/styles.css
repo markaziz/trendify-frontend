@@ -7,19 +7,14 @@
   margin: 8rem 0;
 }
 
-.submitButton, .nextButton {
+.submitButton, .nextButton, .playButton {
   width: 14rem;
   text-align: center;
   margin: 0 auto !important;
   font-size: 1.2rem !important;
   font-weight: bold !important;
-  /* background: #c15656 !important; */
   background: #5dd367 !important;
 }
-
-/* .nextButton {
-  background: #5dd367 !important;
-} */
 
 .instructions {
   text-align: center;
@@ -27,4 +22,12 @@
   font-size: 1.4rem;
   margin: 0 auto;
   font-style: italic;
+}
+
+
+
+@media screen and (max-width: 504px)  {
+  .container {
+    width: 100%;
+  }
 }

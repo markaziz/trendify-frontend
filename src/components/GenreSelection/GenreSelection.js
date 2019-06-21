@@ -65,7 +65,7 @@ const handleButton = () => {
   setButtonClicked(true);
 }
   return (
-    <div>
+    <div className="outerContainer">
       {!buttonClicked &&
       <React.Fragment>
         <h2>Select up to 5 genres!</h2>
@@ -83,7 +83,7 @@ const handleButton = () => {
           })}
         </div>
         {selectedGenres.length > 0 && 
-          <Button onClick={handleButton} classes={{ root: 'nextButton' }} variant="contained">Play!</Button>
+          <Button onClick={handleButton} classes={{ root: 'playButton' }} variant="contained">Play!</Button>
         }
       </React.Fragment>
       }
