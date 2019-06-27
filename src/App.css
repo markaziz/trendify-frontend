@@ -16,12 +16,13 @@ html {
 
 .loginButton {
   margin: auto 0;
+  min-width: 10rem;
   font-size: 2rem;
   padding: 2rem;
   background: #1db954;
   color: #ffffff;
   font-weight: 600;
-  border-radius: 4rem;
+  border-radius: 3rem;
   border: none;
   cursor: pointer;
   transition: all .2s ease-in-out;
@@ -30,8 +31,8 @@ html {
 .loginButton:hover {
   background: #36c568;
   transform-origin: center;
-  box-shadow: 0rem 0.4rem 3rem #cccccc;
-  transform: scale(1.1) translateY(-0.6rem);
+  box-shadow: 0rem 0.1rem 2rem #cccccc;
+  transform: scale(1.05);
 }
 
 .loginButton:active {

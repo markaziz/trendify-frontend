@@ -30,7 +30,6 @@ export default function GuessPopularity(props) {
       console.log('ran useEffect');
       // const res = await fetch(`${API}/toptracks?access_token=${props.accessToken}&limit=50`, {
       const res = await fetch(`${API}/getRecommendations?access_token=${props.accessToken}&genres=${props.genres.join(',')}`, {
-        mode: "cors",
       }).catch((err) => {
         console.log(err);
       });
