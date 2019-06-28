@@ -6,6 +6,11 @@ import rockImage from '../../images/rock.jpeg';
 import popImage from '../../images/pop.jpg'
 import rnbImage from '../../images/rnb.jpg'
 import countryImage from '../../images/country.jpeg';
+import jazzImage from '../../images/jazz.jpeg';
+import edmImage from '../../images/edm.jpg';
+import rapImage from '../../images/rap.jpg';
+import danceImage from '../../images/dance.jpg';
+import indieImage from '../../images/indie.jpg';
 import { Link } from "react-router-dom"
 import classicalImage from '../../images/classical.jpg'
 import './styles.css';
@@ -41,6 +46,31 @@ const genresToSelectFrom = [
     label: 'Classical',
     value: 'classical',
     img: classicalImage,
+  },
+  {
+    label: 'Jazz',
+    value: 'jazz',
+    img: jazzImage,
+  },
+  {
+    label: 'EDM',
+    value: 'edm',
+    img: edmImage,
+  },
+  {
+    label: 'Rap',
+    value: 'rap',
+    img: rapImage,
+  },
+  {
+    label: 'Indie',
+    value: 'indie',
+    img: indieImage,
+  },
+  {
+    label: 'Dance',
+    value: 'dance',
+    img: danceImage,
   },
 ]
 
