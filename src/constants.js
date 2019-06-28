@@ -5,7 +5,7 @@ import rnbImage from './images/rnb.jpg'
 import countryImage from './images/country.jpeg';
 import jazzImage from './images/jazz.jpeg';
 import edmImage from './images/edm.jpg';
-import rapImage from './images/rap.jpg';
+import technoImage from './images/techno.jpg';
 import danceImage from './images/dance.jpg';
 import indieImage from './images/indie.jpg';
 import classicalImage from './images/classical.jpg'
@@ -53,9 +53,9 @@ export default function genresToSelectFrom() {
       img: edmImage,
     },
     {
-      label: 'Rap',
-      value: 'rap',
-      img: rapImage,
+      label: 'Techno',
+      value: 'techno',
+      img: technoImage,
     },
     {
       label: 'Indie',

@@ -33,7 +33,7 @@ export default function GuessPopularity(props) {
     async function getTracks() {
       let res;
       if (mySongs) {
-        res = await fetch(`${API}/mySongs?access_token=${accessToken}`, {})
+        res = await fetch(`${API}/mySongs?access_token=${accessToken}&limit=50`, {})
         .catch((err) => {
           console.log(err);
         });
