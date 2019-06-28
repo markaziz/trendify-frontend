@@ -4,6 +4,8 @@ import Track from '../Track/Track';
 import MUISlider from '../MUISlider/MUISlider';
 import Button from '@material-ui/core/Button';
 import { getRandomNumber, getRandomItemsFromArray } from '../../utils';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 const DEFAULT_SLIDER_VALUE = 10;
 const POINTS_MULTIPLIER = 100;
@@ -15,8 +17,6 @@ function getRandomTrack(tracks) {
   return tracks.length ? tracks[randNum] : {};
 }
 
-
-
 export default function GuessPopularity(props) {
   const [selectedTrack, setSelectedTrack] = useState(null);
   const [guessesRemaining, setGuessesRemaining] = useState(NUM_OF_SONGS_TO_GUESS);
@@ -25,24 +25,28 @@ export default function GuessPopularity(props) {
   const [playerPoints, setPlayerPoints] = useState(0);
   const [hasPlayerGuessed, setHasPlayerGuessed] = useState(false);
 
+  if (!props.location.state) {
+    window.location.href = '/';
+  }
+  const { accessToken, genres } = props.location.state;
+
   useEffect(() => {
     async function getTopTracks() {
-      console.log('ran useEffect');
-      // const res = await fetch(`${API}/toptracks?access_token=${props.accessToken}&limit=50`, {
-      const res = await fetch(`${API}/getRecommendations?access_token=${props.accessToken}&genres=${props.genres.join(',')}`, {
+      const res = await fetch(`${API}/getRecommendations?access_token=${accessToken}&genres=${genres.join(',')}`, {
       }).catch((err) => {
         console.log(err);
       });
       if(res && res.status === 401) {
         window.location.href = `${API}/login`;
       }
-      // fetch(`${API}/getRecommendations?access_token=${props.accessToken}`);
     
-      const tracksData = await res.json();
-      const filteredTracks = tracksData.filter((t) => t.preview_url);
-      const tracksRandomSubset = getRandomItemsFromArray(filteredTracks, NUM_OF_SONGS_TO_GUESS)
-      setAllTracks(tracksRandomSubset);
-      setSelectedTrack(tracksRandomSubset[0]);
+      if (res) {
+        const tracksData = await res.json();
+        const filteredTracks = tracksData.filter((t) => t.preview_url);
+        const tracksRandomSubset = getRandomItemsFromArray(filteredTracks, NUM_OF_SONGS_TO_GUESS)
+        setAllTracks(tracksRandomSubset);
+        setSelectedTrack(tracksRandomSubset[0]);
+      }
   
     }
     getTopTracks();
@@ -97,19 +101,13 @@ export default function GuessPopularity(props) {
       <React.Fragment>
         <h1>Guess the popularity!</h1>
         {trackComponent}
-        {/* <h1>{NUM_OF_SONGS_TO_GUESS - guessesRemaining}/{NUM_OF_SONGS_TO_GUESS}</h1> */}
-        <div className="instructions">
-          <p>Spotify gives each song a popularity score from 0 - 100 based on an algorithm that uses the number of times a song is played and how recently it was played.</p>
-        </div>
         <MUISlider value={sliderValue} onChange={(v) => setSliderValue(v)} defaultValue={DEFAULT_SLIDER_VALUE} />
         {hasPlayerGuessed ? 
           <Button onClick={handleNext} classes={{ root: 'nextButton' }} variant="contained">{nextButtonText}</Button> :
           <Button onClick={handleSubmit} classes={{ root: 'submitButton' }} variant="contained">Submit guess</Button>
         }
-        {hasPlayerGuessed &&
-          <h3>Popularity of this song was: {selectedTrack.popularity}</h3>
-        }
-        <h2>Points: {playerPoints}</h2>
+        <h2>{hasPlayerGuessed && `Popularity of this song was: ${selectedTrack.popularity}`}</h2>
+        <div className="points">Points: {playerPoints}</div>
       </React.Fragment> :
       <React.Fragment>
         <h1>Game over! Points: {playerPoints}/{NUM_OF_SONGS_TO_GUESS * POINTS_MULTIPLIER}</h1>

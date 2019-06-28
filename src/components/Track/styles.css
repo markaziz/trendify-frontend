@@ -1,9 +1,5 @@
 .trackContainer {
-  margin: 3rem 0;
-  position: relative;
-  left: 50%;
-  top: 5%;
-  transform: translateX(-50%);
+  margin: 1rem auto 3rem auto
 }
 
 .trackContainer, audio {

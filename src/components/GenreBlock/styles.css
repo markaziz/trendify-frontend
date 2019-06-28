@@ -30,8 +30,8 @@
 .selectionIndicator {
   height: 2rem;
   width: 2rem;
-  color: black;
-  background: limegreen;
+  color: white;
+  background: #1db954;
   position: absolute;
   top: 1rem;
   font-size: 1.6rem;

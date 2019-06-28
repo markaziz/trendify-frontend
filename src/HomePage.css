@@ -1,0 +1,40 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  width: 42rem;
+  margin: auto 0;
+}
+
+.loginButton {
+  min-width: 14rem !important;
+  font-size: 2rem !important;
+  background: #1db954 !important;
+  text-transform: none !important;
+  text-decoration: none;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  border-radius: 1.6rem !important;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  padding: 1rem 2rem !important;
+}
+
+.loginButton:hover {
+  background: #36c568;
+  transform-origin: center;
+  box-shadow: 0rem 0.1rem 2rem #cccccc;
+  transform: scale(1.05);
+}
+
+.loginButton:active {
+  border: none;
+}
+
+.instructions {
+  text-align: center;
+  width: 100%;
+  font-size: 1.4rem;
+  margin: 0 0 3.2rem auto;
+  font-style: italic;
+}
