@@ -1,78 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@material-ui/core';
 import GenreBlock from '../GenreBlock/GenreBlock';
-import hipHopImage from '../../images/hip-hop.jpeg';
-import rockImage from '../../images/rock.jpeg';
-import popImage from '../../images/pop.jpg'
-import rnbImage from '../../images/rnb.jpg'
-import countryImage from '../../images/country.jpeg';
-import jazzImage from '../../images/jazz.jpeg';
-import edmImage from '../../images/edm.jpg';
-import rapImage from '../../images/rap.jpg';
-import danceImage from '../../images/dance.jpg';
-import indieImage from '../../images/indie.jpg';
 import { Link } from "react-router-dom"
-import classicalImage from '../../images/classical.jpg'
 import './styles.css';
 import Loader from '../Loader/Loader';
-
-const genresToSelectFrom = [
-  {
-    label: 'Hip hop',
-    value: 'hip-hop',
-    img: hipHopImage,
-  },
-  {
-    label: 'Rock',
-    value: 'rock',
-    img: rockImage,
-  },
-  {
-    label: 'Pop',
-    value: 'pop',
-    img: popImage,
-  },
-  {
-    label: 'R&B',
-    value: 'r-n-b',
-    img: rnbImage ,
-  },
-  {
-    label: 'Country',
-    value: 'country',
-    img: countryImage,
-  },
-  {
-    label: 'Classical',
-    value: 'classical',
-    img: classicalImage,
-  },
-  {
-    label: 'Jazz',
-    value: 'jazz',
-    img: jazzImage,
-  },
-  {
-    label: 'EDM',
-    value: 'edm',
-    img: edmImage,
-  },
-  {
-    label: 'Rap',
-    value: 'rap',
-    img: rapImage,
-  },
-  {
-    label: 'Indie',
-    value: 'indie',
-    img: indieImage,
-  },
-  {
-    label: 'Dance',
-    value: 'dance',
-    img: danceImage,
-  },
-]
+import getGenresToSelect from '../../constants';
 
 export default function GenreSelection(props) {
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -127,7 +59,7 @@ export default function GenreSelection(props) {
       <React.Fragment>
         <h2>Select up to 5 genres!</h2>
         <div className="genreSelectionContainer">
-          {genresToSelectFrom.map((g) => {
+          {getGenresToSelect().map((g) => {
             return (
               <GenreBlock
                 onClick={() => { handleGenreSelection(g.value) }}
@@ -142,7 +74,7 @@ export default function GenreSelection(props) {
         {selectedGenres.length > 0 && 
           <Link
             to={{
-              pathname: '/play',
+              pathname: '/play-genres',
               state: { accessToken, genres: selectedGenres }
             }}
             style={{ textDecoration: 'none' }}

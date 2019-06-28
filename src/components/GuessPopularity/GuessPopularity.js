@@ -4,7 +4,6 @@ import Track from '../Track/Track';
 import MUISlider from '../MUISlider/MUISlider';
 import Button from '@material-ui/core/Button';
 import { getRandomNumber, getRandomItemsFromArray } from '../../utils';
-import Tooltip from '@material-ui/core/Tooltip';
 
 
 const DEFAULT_SLIDER_VALUE = 10;
@@ -28,20 +27,29 @@ export default function GuessPopularity(props) {
   if (!props.location.state) {
     window.location.href = '/';
   }
-  const { accessToken, genres } = props.location.state;
+  const { accessToken, genres, mySongs } = props.location.state;
 
   useEffect(() => {
-    async function getTopTracks() {
-      const res = await fetch(`${API}/getRecommendations?access_token=${accessToken}&genres=${genres.join(',')}`, {
-      }).catch((err) => {
-        console.log(err);
-      });
+    async function getTracks() {
+      let res;
+      if (mySongs) {
+        res = await fetch(`${API}/mySongs?access_token=${accessToken}`, {})
+        .catch((err) => {
+          console.log(err);
+        });
+      } else {
+        res = await fetch(`${API}/getRecommendations?access_token=${accessToken}&genres=${genres.join(',')}`, {})
+        .catch((err) => {
+          console.log(err);
+        });
+      }
       if(res && res.status === 401) {
         window.location.href = `${API}/login`;
       }
     
       if (res) {
-        const tracksData = await res.json();
+        let tracksData;
+        tracksData = await res.json();
         const filteredTracks = tracksData.filter((t) => t.preview_url);
         const tracksRandomSubset = getRandomItemsFromArray(filteredTracks, NUM_OF_SONGS_TO_GUESS)
         setAllTracks(tracksRandomSubset);
@@ -49,7 +57,7 @@ export default function GuessPopularity(props) {
       }
   
     }
-    getTopTracks();
+    getTracks();
   }, [])
 
   let trackComponent;
