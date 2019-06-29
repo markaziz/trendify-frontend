@@ -28,7 +28,8 @@ export default function GenreSelection(props) {
         }
       }).catch(err => {
         setLoading(false);
-        throw(err.message)
+        console.log(err.message);
+        window.location.href="/";
       });
   }
 

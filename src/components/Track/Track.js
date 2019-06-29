@@ -17,6 +17,7 @@ export default function Track(props) {
       <ReactAudioPlayer
         src={preview_url}
         controls
+        controlsList="nodownload"
       />
     </div>
   )

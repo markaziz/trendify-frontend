@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import Tick from '../../images/tick.png';
 
 export default function GenreBlock(props) {
   const { genre, img, isSelected, onClick } = props
@@ -14,7 +15,13 @@ export default function GenreBlock(props) {
       }}
     >
       <p className="genreName">{genre}</p>
-      {isSelected && <div className="selectionIndicator">✓</div>}
+      {isSelected &&
+        <img
+          className="selectionIndicator"
+          alt="selection"
+          src={Tick}
+        />
+      }
     </div>
   );
 }

@@ -35,16 +35,18 @@ export default function GuessPopularity(props) {
       if (mySongs) {
         res = await fetch(`${API}/mySongs?access_token=${accessToken}&limit=50`, {})
         .catch((err) => {
-          console.log(err);
+          localStorage.removeItem('spotifyAccessToken');
+          window.location.href = "/";
         });
       } else {
         res = await fetch(`${API}/getRecommendations?access_token=${accessToken}&genres=${genres.join(',')}`, {})
         .catch((err) => {
-          console.log(err);
+          localStorage.removeItem('spotifyAccessToken');
+          window.location.href = "/";
         });
       }
       if(res && res.status === 401) {
-        window.location.href = `${API}/login`;
+        window.location.href = "/";
       }
     
       if (res) {
