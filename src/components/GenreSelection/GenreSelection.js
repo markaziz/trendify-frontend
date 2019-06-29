@@ -34,9 +34,7 @@ export default function GenreSelection(props) {
   }
 
   useEffect(() => {
-    if (!accessToken) {
-      getToken();
-    }
+    getToken();
   }, [])
 
   const handleGenreSelection = (genre) => {
