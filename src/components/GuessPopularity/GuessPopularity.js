@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 import Track from '../Track/Track';
 import MUISlider from '../MUISlider/MUISlider';
-import Button from '@material-ui/core/Button';
+import Button from '../Button/Button';
 import { getRandomNumber, getRandomItemsFromArray } from '../../utils';
 
 
@@ -111,7 +111,7 @@ export default function GuessPopularity(props) {
         {trackComponent}
         <MUISlider value={sliderValue} onChange={(v) => setSliderValue(v)} defaultValue={DEFAULT_SLIDER_VALUE} />
         {hasPlayerGuessed ? 
-          <Button onClick={handleNext} classes={{ root: 'nextButton' }} variant="contained">{nextButtonText}</Button> :
+          <Button onClick={handleNext} variant="contained">{nextButtonText}</Button> :
           <Button onClick={handleSubmit} classes={{ root: 'submitButton' }} variant="contained">Submit guess</Button>
         }
         <h2>{hasPlayerGuessed && `Popularity of this song was: ${selectedTrack.popularity}`}</h2>
@@ -119,7 +119,7 @@ export default function GuessPopularity(props) {
       </React.Fragment> :
       <React.Fragment>
         <h1>Game over! Points: {playerPoints}/{NUM_OF_SONGS_TO_GUESS * POINTS_MULTIPLIER}</h1>
-        <Button onClick={() => { window.location.reload(); }} classes={{ root: 'nextButton' }} variant="contained">Play again!</Button>
+        <Button onClick={() => { window.location.reload(); }} variant="contained">Play again!</Button>
       </React.Fragment>}
     </div>
   );

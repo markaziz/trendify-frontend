@@ -42,10 +42,11 @@
 
 @media screen and (max-width: 504px)  {
   .genreBlockContainer {
-    flex: 1 0 25%;
-    height: 16rem;
+    flex: 0 0 25%;
+    height: 12rem;
   }  
   .genreName {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    bottom: 1rem;
   }
 }

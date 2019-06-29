@@ -14,22 +14,11 @@ html {
   color: white;
 }
 
-.submitButton, .nextButton, .playButton {
-  min-width: 14rem !important;
-  font-size: 2rem !important;
-  background: #1db954 !important;
-  text-transform: none !important;
-  text-decoration: none;
-  color: #ffffff !important;
-  font-weight: 500 !important;
-  border-radius: 1.6rem !important;
-  border: none;
-  cursor: pointer;
-  transition: all .2s ease-in-out;
-}
-
 @media screen and (max-width: 504px)  {
+  html {
+    font-size: 58%;
+  }
   .app {
-    padding: 2rem;
+    padding: 0 3rem;
   }
 }

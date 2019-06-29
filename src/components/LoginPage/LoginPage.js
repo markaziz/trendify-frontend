@@ -5,7 +5,7 @@ export default function LoginPage(props) {
     const searchParams = props.location.search;
     if (searchParams.length && searchParams.includes('access_token')) {
       const token = new URLSearchParams(searchParams).get('access_token');
-      localStorage.setItem('accessToken', token);
+      localStorage.setItem('spotifyAccessToken', token);
       window.location.href = '/my-songs'
     }
   }

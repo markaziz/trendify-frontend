@@ -4,14 +4,14 @@ import GuessPopularity from '../GuessPopularity/GuessPopularity';
 export default function MySongs(props) {
 
   useEffect(() => {
-    if (!localStorage.getItem('accessToken')) {
+    if (!localStorage.getItem('spotifyAccessToken')) {
       window.location.href = '/';
     }
   })
 
   const location = {
     state: {
-      accessToken: localStorage.getItem('accessToken'),
+      accessToken: localStorage.getItem('spotifyAccessToken'),
       mySongs: true
     }
   }

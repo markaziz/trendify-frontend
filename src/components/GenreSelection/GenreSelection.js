@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '@material-ui/core';
+import Button from '../Button/Button';
 import GenreBlock from '../GenreBlock/GenreBlock';
 import { Link } from "react-router-dom"
-import './styles.css';
 import Loader from '../Loader/Loader';
 import getGenresToSelect from '../../constants';
+import './styles.css';
 
 export default function GenreSelection(props) {
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [buttonClicked, setButtonClicked] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const accessToken = localStorage.getItem('spotifyAccessToken');
 
   const getToken = async () => {
     setLoading(true);
@@ -21,7 +23,7 @@ export default function GenreSelection(props) {
       }).then(response => response.json())
       .then((res) => {
         if (res && res.access_token) {
-          localStorage.setItem('accessToken', res.access_token);
+          localStorage.setItem('spotifyAccessToken', res.access_token);
           setLoading(false);
         }
       }).catch(err => {
@@ -31,7 +33,9 @@ export default function GenreSelection(props) {
   }
 
   useEffect(() => {
-    getToken();
+    if (!accessToken) {
+      getToken();
+    }
   }, [])
 
   const handleGenreSelection = (genre) => {
@@ -51,7 +55,6 @@ export default function GenreSelection(props) {
     setButtonClicked(true);
   }
 
-  const accessToken = localStorage.getItem('accessToken');
   return (
     <div className="outerContainer">
       <Loader loading={loading} />
@@ -79,7 +82,8 @@ export default function GenreSelection(props) {
             }}
             style={{ textDecoration: 'none' }}
           >
-            <Button onClick={handleButton} classes={{ root: 'playButton' }} variant="contained">Play!</Button>
+            <Button onClick={handleButton} variant="contained">Play!</Button>
+            
           </Link>
         }
       </React.Fragment>
