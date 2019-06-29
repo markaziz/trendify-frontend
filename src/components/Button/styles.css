@@ -1,0 +1,30 @@
+.button {
+  min-width: 14rem !important;
+  font-size: 2rem !important;
+  background: #1db954 !important;
+  text-transform: none !important;
+  text-decoration: none;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  border-radius: 1.6rem !important;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  padding: 1rem 2rem !important;
+}
+
+@media screen and (min-width: 900px) {
+  .button:hover {
+    background: #248a48 !important;
+  }
+}
+
+.button:active {
+  border: none;
+}
+
+@media screen and (max-width: 504px)  {
+  .button {
+    font-size: 1.8rem !important;
+  }
+}
