@@ -114,7 +114,7 @@ export default function GuessPopularity(props) {
           <Button onClick={handleNext} variant="contained">{nextButtonText}</Button> :
           <Button onClick={handleSubmit} classes={{ root: 'submitButton' }} variant="contained">Submit guess</Button>
         }
-        <h2>{hasPlayerGuessed && `Popularity of this song was: ${selectedTrack.popularity}`}</h2>
+        <div className='actualPopularity'>{hasPlayerGuessed && `Popularity of this song was: ${selectedTrack.popularity}`}</div >
         <div className="points">Points: {playerPoints}</div>
       </React.Fragment> :
       <React.Fragment>

@@ -60,7 +60,7 @@ export default function GenreSelection(props) {
       <Loader loading={loading} />
       {!buttonClicked && !loading && accessToken &&
       <React.Fragment>
-        <h2>Select up to 5 genres!</h2>
+        <h2 className="title">Select up to 5 genres!</h2>
         <div className="genreSelectionContainer">
           {getGenresToSelect().map((g) => {
             return (
