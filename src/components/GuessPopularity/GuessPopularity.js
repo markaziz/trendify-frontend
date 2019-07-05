@@ -108,7 +108,7 @@ export default function GuessPopularity(props) {
 
   return (
     <div className="mainContainer">
-      <ScoreProgress />
+      {/* <ScoreProgress /> */}
       {trackComponent ?
       <React.Fragment>
         <h1>Guess the popularity!</h1>
