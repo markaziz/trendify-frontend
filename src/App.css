@@ -5,12 +5,13 @@ html, body, #root {
 
 .app {
   text-align: center;
-  height: 100%;
+  min-height: 100%;
   background: linear-gradient(to bottom, #000000 0%,#23292b);
   position: relative;
   display: flex;
   justify-content: center;
   color: white;
+  overflow: scroll;
 }
 
 @media screen and (max-width: 504px)  {
@@ -19,5 +20,12 @@ html, body, #root {
   }
   .app {
     padding: 0 3rem;
+  }
+}
+
+
+@media screen and (max-width: 350px)  {
+  .app {
+    padding: 0.2rem;
   }
 }

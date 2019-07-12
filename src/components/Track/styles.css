@@ -41,3 +41,10 @@
 audio {
   margin-top: 1rem;
 }
+
+
+@media screen and (max-width: 350px)  {
+  .trackContainer, audio {
+    width: 25rem;
+  }  
+}

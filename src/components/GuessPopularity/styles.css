@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  width: 30vw;
   margin: 8rem 0;
 }
 
@@ -28,6 +27,12 @@ h1 {
 @media screen and (max-width: 504px)  {
   .mainContainer {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 350px)  {
+  .mainContainer {
+    width: 85%;
   }
 }
 
