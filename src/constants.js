@@ -9,6 +9,7 @@ import technoImage from './images/techno.jpg';
 import danceImage from './images/dance.jpg';
 import indieImage from './images/indie.jpg';
 import classicalImage from './images/classical.jpg'
+import kpopImage from './images/kpop.jpg'
 
 export default function genresToSelectFrom() {
   return [
@@ -66,6 +67,11 @@ export default function genresToSelectFrom() {
       label: 'Dance',
       value: 'dance',
       img: danceImage,
+    },
+    {
+      label: 'K-Pop',
+      value: 'k-pop',
+      img: kpopImage,
     },
   ];
 }
