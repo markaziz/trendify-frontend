@@ -4,7 +4,6 @@ import Track from '../Track/Track';
 import MUISlider from '../MUISlider/MUISlider';
 import Button from '../Button/Button';
 import { getRandomNumber, getRandomItemsFromArray } from '../../utils';
-import ScoreProgress from '../ScoreProgress/ScoreProgress';
 
 
 const DEFAULT_SLIDER_VALUE = 10;
@@ -108,7 +107,6 @@ export default function GuessPopularity(props) {
 
   return (
     <div className="mainContainer">
-      {/* <ScoreProgress /> */}
       {trackComponent ?
       <React.Fragment>
         <h1>Guess the popularity!</h1>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import GenreSelection from './components/GenreSelection/GenreSelection';
 import { BrowserRouter as Router, Route } from "react-router-dom"
