@@ -67,8 +67,6 @@
   "scripts": {
     "start": "PORT=5000 node scripts/start.js",
     "start:prod": "npm run build && NODE_ENV=production serve -s build",
-    "restart": "pm2 startOrRestart ecosystem.config.js",
-    "deploy": "pm2 deploy ecosystem.config.js production",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
@@ -81,9 +79,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "pm2": "^3.5.1"
-  },
+  "devDependencies": {},
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
